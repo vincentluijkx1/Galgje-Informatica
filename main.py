@@ -1,6 +1,4 @@
 print("Welkom bij galgje!")
 
-woorden = [aap, noot, boom]
-print (1)
-
+woorden = ["informatica", "informatiekunde", "spelletje", "aardigheidje", "scholier", "fotografie", "waardebepaling", "specialiteit", "verzekering", "universiteit", "heesterperk"]
 
