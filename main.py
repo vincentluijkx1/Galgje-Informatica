@@ -15,7 +15,7 @@ print( )
 
 gekozenletter = input("Kies een letter: ")
 for letter in randomWoord:
-  if gekozenletter in randomWoord:
+  if gekozenletter in randomWoord and gekozenletter == letter: 
     streepjes.append(letter)
   else:
     streepjes.append("_")
