@@ -7,6 +7,17 @@ print("Hallo, %s we gaan nu beginnen met galgje!" % (naam))
 
 import random
 woorden = ("informatica", "informatiekunde", "spelletje", "aardigheidje", "scholier", "fotografie", "waardebepaling", "specialiteit", "verzekering", "universiteit", "heesterperk")
-woorden = random.choice(woorden)
+randomWoord = random.choice(woorden)
 goed = woorden
-print(woorden)
+streepjes = []
+
+gekozenletter = input("kies een letter")
+for letter in randomWoord:
+  if gekozenletter in randomWoord:
+    streepjes.append(letter)
+  else:
+    streepjes.append("_")
+
+
+print(streepjes)
+
