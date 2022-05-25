@@ -16,6 +16,9 @@ goed = []
 fouten = 0
 while True:
   gekozenletter = input("Kies een letter: ")
+  if gekozenletter == randomWoord:
+    print("Goedzo %s je hebt het woord geraden!" % (naam))
+    break
   print( )
   for letter in randomWoord:
     if gekozenletter in randomWoord and gekozenletter == letter or letter in goed: 
@@ -28,6 +31,9 @@ while True:
   if gekozenletter not in randomWoord :
     fouten += 1
   print(streepjes)
+  woord = "".join(streepjes)
+  if(woord == randomWoord):
+    print("Goedzo %s je hebt het woord geraden!" % (naam))
   print("%s fout" % fouten)
   streepjes = []
   print( )
