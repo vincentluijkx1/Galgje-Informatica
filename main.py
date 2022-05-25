@@ -13,6 +13,7 @@ woorden = ("informatica", "informatiekunde", "spelletje", "aardigheidje", "schol
 randomWoord = random.choice(woorden)
 streepjes = []
 goed = []
+fouten = 0
 print( )
 while True:
   gekozenletter = input("Kies een letter: ")
@@ -23,9 +24,15 @@ while True:
         goed.append(letter)
     else:
       streepjes.append("_")
+      
+  if gekozenletter not in randomWoord :
+    fouten += 1
   print(streepjes)
+  print(fouten)
   streepjes = []
   print( )
+
+
 
 
   
