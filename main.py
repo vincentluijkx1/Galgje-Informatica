@@ -8,15 +8,15 @@ naam = input ("Hoe heet je?: ")
 print( )
 print("Hallo, %s we gaan nu beginnen met galgje!" % (naam))
 
-import random
+
 woorden = ("informatica", "informatiekunde", "spelletje", "aardigheidje", "scholier", "fotografie", "waardebepaling", "specialiteit", "verzekering", "universiteit", "heesterperk")
 randomWoord = random.choice(woorden)
 streepjes = []
 goed = []
 fouten = 0
-print( )
 while True:
   gekozenletter = input("Kies een letter: ")
+  print( )
   for letter in randomWoord:
     if gekozenletter in randomWoord and gekozenletter == letter or letter in goed: 
       streepjes.append(letter)
@@ -28,13 +28,15 @@ while True:
   if gekozenletter not in randomWoord :
     fouten += 1
   print(streepjes)
-  print(fouten)
+  print("%s fout" % fouten)
   streepjes = []
   print( )
-
-
-
-
+  if fouten >9: 
+   print("Helaas, je hebt verloren %s." % (naam))
+   print( )
+   print("Het woord was " + randomWoord + ".")
+   break
+ 
   
 
 
