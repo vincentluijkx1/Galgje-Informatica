@@ -30,6 +30,10 @@ while True:
       
   if gekozenletter not in randomWoord :
     fouten += 1
+  if gekozenletter.isdigit():
+    print("Thats not a letter!")
+    fouten -=1
+    
   print(streepjes)
   woord = "".join(streepjes)
   if(woord == randomWoord):
