@@ -14,11 +14,11 @@ randomWoord = random.choice(woorden)
 streepjes = []
 goed = []
 fouten = 0
-while True:
+run = True
+
+while run:
   gekozenletter = input("Kies een letter: ")
-  if gekozenletter == randomWoord:
-    print("Goedzo %s je hebt het woord geraden!" % (naam))
-    break
+    
   print( )
   for letter in randomWoord:
     if gekozenletter in randomWoord and gekozenletter == letter or letter in goed: 
@@ -26,19 +26,21 @@ while True:
       if letter not in goed:
         goed.append(letter)
     else:
-      streepjes.append("_")
-      
+      streepjes.append("_") 
   if gekozenletter not in randomWoord :
     fouten += 1
   if gekozenletter.isdigit():
-    print("Thats not a letter!")
+    print("That is not a letter!")
     fouten -=1
-    
-  print(streepjes)
-  woord = "".join(streepjes)
-  if(woord == randomWoord):
+  if gekozenletter == randomWoord or not "_" in streepjes:
     print("Goedzo %s je hebt het woord geraden!" % (naam))
-  print("%s fout" % fouten)
+    print("Het woord was " + randomWoord)
+    run = False
+  else:
+    print(streepjes)
+    print("%s fout" % fouten)
+  woord = "".join(streepjes)
+
   streepjes = []
   print( )
   if fouten >9: 
@@ -46,12 +48,5 @@ while True:
    print( )
    print("Het woord was " + randomWoord + ".")
    break
+
  
-  
-
-
-
-  
-
-
-
