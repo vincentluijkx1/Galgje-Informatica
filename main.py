@@ -1,4 +1,3 @@
-import re
 import random
 
 print("Welkom bij galgje!")
@@ -15,10 +14,14 @@ streepjes = []
 goed = []
 fouten = 0
 run = True
+print(randomWoord)
 
-while run:
+def gameloop():
+  global fouten, run, woord, streepjes
   gekozenletter = input("Kies een letter: ")
-    
+
+
+  
   print( )
   for letter in randomWoord:
     if gekozenletter in randomWoord and gekozenletter == letter or letter in goed: 
@@ -30,7 +33,7 @@ while run:
   if gekozenletter not in randomWoord :
     fouten += 1
   if gekozenletter.isdigit():
-    print("That is not a letter!")
+    print("Dat is geen letter!")
     fouten -=1
   if gekozenletter == randomWoord or not "_" in streepjes:
     print("Goedzo %s je hebt het woord geraden!" % (naam))
@@ -47,6 +50,8 @@ while run:
    print("Helaas, je hebt verloren %s." % (naam))
    print( )
    print("Het woord was " + randomWoord + ".")
-   break
 
- 
+while run == True:
+  gameloop()
+
+
