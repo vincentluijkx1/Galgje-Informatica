@@ -14,14 +14,10 @@ streepjes = []
 goed = []
 fouten = 0
 run = True
-print(randomWoord)
 
 def gameloop():
   global fouten, run, woord, streepjes
-  gekozenletter = input("Kies een letter: ")
-
-
-  
+  gekozenletter = input("Kies een letter: \n")  
   print( )
   for letter in randomWoord:
     if gekozenletter in randomWoord and gekozenletter == letter or letter in goed: 
@@ -40,7 +36,7 @@ def gameloop():
     print("Het woord was " + randomWoord)
     run = False
   else:
-    print(streepjes)
+    print(" ".join(streepjes))
     print("%s fout" % fouten)
   woord = "".join(streepjes)
 
