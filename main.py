@@ -15,6 +15,81 @@ goed = []
 fouten = 0
 run = True
 
+galgVisual = {
+	"1": '''
+                                          	  
+                                                
+                                                
+                                                
+                                                
+                                          =========
+	''',
+	"2": '''
+                                            	|
+                                                |
+                                                |
+                                                |
+                                                |
+                                          =========
+	''',
+	"3":'''                                            +---+
+                                            |   |
+                                                |
+                                                |
+                                                |
+                                                |
+                                          =========
+	''',
+	"4": '''                                            +---+
+                                            |   |
+                                            O   |
+                                                |
+                                                |
+                                                |
+                                          =========
+	''',
+	"5": '''                                            +---+
+                                            |   |
+                                            O   |
+                                            |   |
+                                                |
+                                                |
+                                          =========
+	''',
+	"6": '''                                            +---+
+                                            |   |
+                                            O   |
+                                           /|   |
+                                                |
+                                                |
+                                          =========
+	''',
+	"7": '''                                            +---+
+                                            |   |
+                                            O   |
+                                           /|\  |
+                                                |
+                                                |
+                                          =========
+	''',
+	"8": '''                                            +---+
+                                            |   |
+                                            O   |
+                                           /|\  |
+                                           /    |
+                                                |
+                                          =========
+	''',
+	"9": '''                                            +---+
+                                            |   |
+                                            O   |
+                                           /|\  |
+                                           / \  |
+                                                |
+                                          =========
+	'''
+}
+
 def gameloop():
   global fouten, run, woord, streepjes
   gekozenletter = input("Kies een letter: \n")  
@@ -28,6 +103,8 @@ def gameloop():
       streepjes.append("_") 
   if gekozenletter not in randomWoord :
     fouten += 1
+    galgFouten = str(fouten)
+    print(galgVisual[galgFouten])
   if gekozenletter.isdigit():
     print("Dat is geen letter!")
     fouten -=1
@@ -35,19 +112,22 @@ def gameloop():
     print("Goedzo %s je hebt het woord geraden!" % (naam))
     print("Het woord was " + randomWoord)
     run = False
+    fouten = 0
   else:
     print(" ".join(streepjes))
     print("%s fout" % fouten)
+
+
   woord = "".join(streepjes)
 
   streepjes = []
   print( )
-  if fouten >9: 
+  if fouten >8: 
    print("Helaas, je hebt verloren %s." % (naam))
    print( )
    print("Het woord was " + randomWoord + ".")
+   run = False
+   fouten = 0
 
 while run == True:
   gameloop()
-
-
