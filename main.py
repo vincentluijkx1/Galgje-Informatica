@@ -116,6 +116,7 @@ def gameloop():
   if gekozenletter == randomWoord or not "_" in streepjes:
     print("Goedzo %s je hebt het woord geraden!" % (naam))
     print("Het woord was " + randomWoord) 
+    print( )
     fouten = 9
     keus = input("nog een keer?  ja/nee")
     if(keus == "ja"):
@@ -139,6 +140,7 @@ def gameloop():
     print("Helaas, je hebt verloren %s." % (naam))
     print( )
     print("Het woord was " + randomWoord + ".")
+    print( )
     keus = input("nog een keer?  ja/nee")
     if(keus == "ja"):
       randomWoord = random.choice(woorden)
@@ -147,7 +149,7 @@ def gameloop():
       fouten = 0
     else:
       print("Bedankt voor het spelen")
-      quit()
+      exit()
 
 
 while run == True:
