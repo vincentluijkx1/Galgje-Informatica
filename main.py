@@ -10,6 +10,7 @@ print("Hallo, %s we gaan nu beginnen met galgje!" % (naam))
 
 woorden = ("informatica", "informatiekunde", "spelletje", "aardigheidje", "scholier", "fotografie", "waardebepaling", "specialiteit", "verzekering", "universiteit", "heesterperk")
 randomWoord = random.choice(woorden)
+toonFouteWoorden = []
 streepjes = []
 goed = []
 fouten = 0
@@ -105,6 +106,9 @@ def gameloop():
     fouten += 1
     galgFouten = str(fouten)
     print(galgVisual[galgFouten])
+    toonFouteWoorden.append(gekozenletter)
+    print( )
+    print("Foute letters:", *toonFouteWoorden)
 
   if gekozenletter.isdigit():
     print("Dat is geen letter!")
@@ -113,6 +117,17 @@ def gameloop():
     print("Goedzo %s je hebt het woord geraden!" % (naam))
     print("Het woord was " + randomWoord) 
     fouten = 9
+    keus = input("nog een keer?  ja/nee")
+    if(keus == "ja"):
+      randomWoord = random.choice(woorden)
+      streepjes = []
+      goed = []
+      fouten = 0
+    else:
+      print("Bedankt voor het spelen")
+      exit()
+
+      
   else:
     print(" ".join(streepjes))
     print("%s fout" % fouten) 
@@ -124,14 +139,15 @@ def gameloop():
     print("Helaas, je hebt verloren %s." % (naam))
     print( )
     print("Het woord was " + randomWoord + ".")
-    keus = input("nog een keer?")
+    keus = input("nog een keer?  ja/nee")
     if(keus == "ja"):
       randomWoord = random.choice(woorden)
       streepjes = []
       goed = []
       fouten = 0
     else:
-      exit()
+      print("Bedankt voor het spelen")
+      quit()
 
 
 while run == True:
